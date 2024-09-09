@@ -1,6 +1,7 @@
 package com.nobel.game.rps.controller;
 
 import com.nobel.game.rps.engine.GameStats;
+import com.nobel.game.rps.response.Response;
 import com.nobel.game.rps.service.GameService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,20 +21,20 @@ public class GameController {
 
 
     @PostMapping("/start")
-    public String startGame() {
+    public Response startGame() {
         gameService.start();
-        return "Started";
+        return new Response("Started");
     }
 
     @PostMapping("/play")
-    public String playGame(@RequestParam String move) {
-        return gameService.play(move);
+    public Response playGame(@RequestParam String move) {
+        return new Response(gameService.play(move));
     }
 
     @PostMapping("/terminate")
-    public String terminateGame() {
+    public Response terminateGame() {
         gameService.terminate();
-        return "Game terminated.";
+        return new Response("Game terminated.") ;
     }
 
     @GetMapping("/statistics")
