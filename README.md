@@ -11,5 +11,5 @@ The game have different algorithms.
 
 For running and testing application you need to write 2 commands
 
-# docker build -t rps .
-# docker run -p 8080:8080 rps
+## docker build -t rps . 
+## docker run -p 8080:8080 rps
